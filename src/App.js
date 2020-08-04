@@ -23,6 +23,8 @@ class App extends Component {
           </div>
         </Navbar>
         <Menu dishes={this.state.dishes}/>
+        {/* the menu is added here and the dishes is mounted here itself so state is used else props was used */}
+        {/* the menu component is now made in the menuComponent.js file */}
 
       </div>
     );

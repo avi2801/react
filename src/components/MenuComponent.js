@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody,
   CardTitle } from 'reactstrap';
-
+// the menu component starts here
 class Menu extends Component {
 
   constructor(props) {
@@ -32,6 +32,7 @@ class Menu extends Component {
               <div></div>
           );
   }
+  // to understand the props and the static https://www.freecodecamp.org/news/react-js-for-beginners-props-state-explained/
 
   render() {
       const menu = this.props.dishes.map((dish) => {
@@ -54,7 +55,7 @@ class Menu extends Component {
                   {menu}
               </div>
               <div className="row">
-                <div  className="col-12 col-md-5 m-1">
+                <div  className="col-12 col-md- m-1">
                   {this.renderDish(this.state.selectedDish)}
                 </div>
               </div>
@@ -62,5 +63,5 @@ class Menu extends Component {
       );
   }
 }
-
+// the code to export the menu from here into the app.js file
 export default Menu;
