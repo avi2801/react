@@ -28,13 +28,12 @@ class Main extends Component {
                     onClick={(dishID) => this.onDishSelect(dishID)} />
                 <Dishdetail 
                 dish={this.state.dishes.filter((dish)=> dish.id===this.state.selectedDish)[0]} />
+                {/* here the dishid is used to know which is being refered to */}
                 {/* the menu is added here and the dishes is mounted here itself so state is used else props was used */}
                 {/* the menu component is now made in the menuComponent.js file */}
 
             </div>
         );
     }
-
 }
-
 export default Main;

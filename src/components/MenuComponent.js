@@ -1,37 +1,42 @@
-import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody,
-  CardTitle } from 'reactstrap';
+import React from 'react';
+import {
+  Card, CardImg, CardImgOverlay, CardText, CardBody,
+  CardTitle
+} from 'reactstrap';
 
 // the menu component starts here
-class Menu extends Component {
 
-  constructor(props) {
-      super(props);
+// user defined functions should start with a capital letter
+function RenderMenu({ dish, onClick }) {
+  return (
 
-  }
-  render() {
-    const menu = this.props.dishes.map((dish) => {
-        return (
-          <div  className="col-12 col-md-5 m-1">
-            <Card key={dish.id}
-              onClick={() => this.props.onClick(dish.id)}>
-              <CardImg width="100%" src={dish.image} alt={dish.name} />
-              <CardImgOverlay>
-                  <CardTitle>{dish.name}</CardTitle>
-              </CardImgOverlay>
-            </Card>
-          </div>
-        );
-    });
-
-return (
-        <div className="container">
-            <div className="row">
-                {menu}
-            </div>      
-        </div>
+    <Card 
+      onClick={() => onClick(dish.id)}>
+      {/* by the onclick method we are passing the dish id to the onclick as prop to the main */}
+      <CardImg width="100%" src={dish.image} alt={dish.name} />
+      <CardImgOverlay>
+        <CardTitle>{dish.name}</CardTitle>
+      </CardImgOverlay>
+    </Card>
+  )
+}
+function Menu(props) {
+  const menu = props.dishes.map((dish) => {
+    return (
+      <div key={dish.id} className="col-12 col-md-5 m-1">
+        <RenderMenu dish={dish} onClick={props.onClick} />
+      </div>
     );
+  });
+  return (
+    <div className="container">
+      <div className="row">
+        {menu}
+      </div>
+    </div>
+  );
 }
-}
+
+
 // the code to export the menu from here into the app.js file
 export default Menu;
