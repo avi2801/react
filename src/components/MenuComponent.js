@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 // the menu component starts here
 
 // user defined functions should start with a capital letter
-function RenderMenu({ dish, onClick }) {
+function RenderMenu({ dish}) {
   return (
 
     <Card >
